@@ -3,6 +3,8 @@ import "./App.css";
 import usewebanimations from "@wellyshen/use-web-animations";
 
 function App() {
+
+  // Using WebAnimationApi Hook
   const animationclouds = {
     keyframes: {
       transform: ["translateX(100%)", "translateX(-100%)"],
@@ -27,12 +29,50 @@ function App() {
   const trees = usewebanimations(animationtrees);
   const batman = usewebanimations();
 
+// Playback Functions
   const jumpBatman = () => {
     batman.animate({
-      keyframes: { transform: ["translateY(-300px)", "translateX(50px)", "traslateX(300px)"] },
+      keyframes: {
+        transform: [
+          "translateY(-300px)",
+          "translateX(50px)",
+          "traslateX(300px)",
+        ],
+      },
       timing: { duration: 5000 },
-      easing: 'ease',
+      easing: "ease",
     });
+  };
+
+  const pauseAll = () => {
+    clouds.getAnimation().pause();
+    trees.getAnimation().pause();
+  };
+  const playAll = () => {
+    clouds.getAnimation().play();
+    trees.getAnimation().play();
+  };
+
+  const speedAll = () => {
+    clouds
+      .getAnimation()
+      .updatePlaybackRate(clouds.getAnimation().playbackRate * 1.5);
+    trees
+      .getAnimation()
+      .updatePlaybackRate(clouds.getAnimation().playbackRate * 1.5);
+  };
+  const slowAll = () => {
+    clouds
+      .getAnimation()
+      .updatePlaybackRate(clouds.getAnimation().playbackRate / 1.5);
+    trees
+      .getAnimation()
+      .updatePlaybackRate(clouds.getAnimation().playbackRate / 1.5);
+  };
+
+  const reverseAll = () => {
+    clouds.getAnimation().reverse();
+    trees.getAnimation().reverse();
   };
 
   return (
@@ -83,36 +123,12 @@ function App() {
           alt=""
         />
       </div>
-      <button
-        onClick={() => {
-          clouds.getAnimation().play();
-        }}
-      >
-        Play
-      </button>
-      <button
-        onClick={() => {
-          clouds.getAnimation().pause();
-        }}
-      >
-        Pause
-      </button>
-      <button
-        onClick={() => {
-          clouds.getAnimation().reverse();
-        }}
-      >
-        reverse
-      </button>
-      <button
-        onClick={() => {
-          clouds
-            .getAnimation()
-            .updatePlaybackRate(clouds.getAnimation().playbackRate * 1.5);
-        }}
-      >
-        Increase Speed
-      </button>
+
+      <button onClick={playAll}>Play</button>
+      <button onClick={pauseAll}>Pause</button>
+      <button onClick={slowAll}>Decrese Speed</button>
+      <button onClick={speedAll}>Increase Speed</button>
+      <button onClick={reverseAll}>Reverse</button>
     </div>
   );
 }
