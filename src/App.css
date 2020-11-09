@@ -1,38 +1,77 @@
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.bg {
+  background: url("https://static.vecteezy.com/system/resources/previews/000/123/078/original/purple-halloween-night-vector.jpg")
+    repeat-x 100% 100% / 100% 100%;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
+.character {
+cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 30em;
+  left: 30em;
+  z-index: 1;
+}
+.clouds {
+  width: 100%;
+  position: relative;
+  bottom: 10rem;
+}
+.trees {
+  width: 100%;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#cloud3 {
+  top: 0.5rem;
+  bottom: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#cloud2 {
+  top: 2rem;
+  right: 5rem;
+}
+#cloud1 {
+  top: 10rem;
+  left: 10rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#tree1 {
+  top: 15rem;
+  height: 500px;
+}
+#tree2 {
+  top: 25rem;
+  height: 300px;
 }
 
-.App-link {
-  color: #61dafb;
+#tree3 {
+  top: 30rem;
+  left: 40rem;
+  height: 200px;
+}
+#tree4 {
+  top: 15rem;
+  left: 60rem;
+  height: 500px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  position: absolute;
+}
+
+button{
+  position: relative;
+  left: 33rem;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 15px;
 }
